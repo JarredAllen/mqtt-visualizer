@@ -1,0 +1,12 @@
+[package]
+name = "mqtt-visualizer"
+version = "0.1.0"
+authors = ["Jarred Allen <jarred@moveparallel.com>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+mqttrs = "0.4"
+hex = "0.4"
+
