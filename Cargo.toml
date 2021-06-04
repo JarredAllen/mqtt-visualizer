@@ -3,6 +3,13 @@ name = "mqtt-visualizer"
 version = "0.1.0"
 authors = ["Jarred Allen <jarredallen73@gmail.com>"]
 edition = "2018"
+description = "A visualizer for MQTT packets"
+documentation = "https://docs.rs/mqtt-visualizer"
+readme = "README.md"
+repository = "https://github.com/JarredAllen/mqtt-visualizer"
+license = "MIT OR Apache-2.0"
+keywords = ["mqtt", "messaging", "iot"]
+categories = ["command-line-utilities"]
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
