@@ -6,8 +6,10 @@ fn main() {
     for line in stdin().lock().lines() {
         let line = line.unwrap();
         let data = hex::decode(line.clone()).expect("Error decoding hex");
-        let packet = mqttrs::decode_slice(&data).expect("Error decoding slice").expect("No packet found");
+        let packet = mqttrs::decode_slice(&data)
+            .expect("Error decoding slice")
+            .expect("No packet found");
         println!("Data: {}", line);
-        println!("{}", format_packet(packet));
+        println!("{}\n", format_packet(packet));
     }
 }
