@@ -2,19 +2,29 @@ use mqttrs::Packet;
 
 pub fn format_packet(packet: Packet) -> String {
     match packet {
-        Packet::Connect(packet) => format!("{:#?}\n", packet),
-        Packet::Connack(packet) => format!("{:#?}\n", packet),
-        Packet::Subscribe(packet) => format!("{:#?}\n", packet),
-        Packet::Unsubscribe(packet) => format!("{:#?}\n", packet),
-        Packet::Unsuback(packet) => format!("{:#?}\n", packet),
-        Packet::Suback(packet) => format!("{:#?}\n", packet),
-        Packet::Publish(packet) => format!("{:#?}\n", packet),
-        Packet::Puback(packet) => format!("{:#?}\n", packet),
-        Packet::Pubrel(packet) => format!("{:#?}\n", packet),
-        Packet::Pubrec(packet) => format!("{:#?}\n", packet),
-        Packet::Pubcomp(packet) => format!("{:#?}\n", packet),
-        Packet::Disconnect => format!("{:#?}\n", Packet::Disconnect),
-        Packet::Pingreq => format!("{:#?}\n", Packet::Disconnect),
-        Packet::Pingresp => format!("{:#?}\n", Packet::Disconnect),
+        Packet::Connect(packet) => format!("{:#?}", packet),
+        Packet::Connack(packet) => format!("{:#?}", packet),
+        Packet::Subscribe(packet) => format!("{:#?}", packet),
+        Packet::Unsubscribe(packet) => format!("{:#?}", packet),
+        Packet::Unsuback(packet) => format!("{:#?}", packet),
+        Packet::Suback(packet) => format!("{:#?}", packet),
+        Packet::Publish(packet) => format!("{:#?}", packet),
+        Packet::Puback(packet) => format!("{:#?}", packet),
+        Packet::Pubrel(packet) => format!("{:#?}", packet),
+        Packet::Pubrec(packet) => format!("{:#?}", packet),
+        Packet::Pubcomp(packet) => format!("{:#?}", packet),
+        Packet::Disconnect => format!("{:#?}", Packet::Disconnect),
+        Packet::Pingreq => format!("{:#?}", Packet::Disconnect),
+        Packet::Pingresp => format!("{:#?}", Packet::Disconnect),
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_format_disconnect() {
+        assert_eq!("Disconnect", format_packet(Packet::Disconnect));
     }
 }
