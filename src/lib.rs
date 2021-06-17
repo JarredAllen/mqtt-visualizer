@@ -7,10 +7,10 @@ pub fn format_packet(packet: Packet) -> String {
         Packet::Subscribe(packet) => format!("{:#?}", packet),
         Packet::Unsubscribe(packet) => format!("{:#?}", packet),
         Packet::Suback(packet) => format!("{:#?}", packet),
+        Packet::Publish(packet) => format!("{:#?}\nPayload: {:?}", packet, String::from_utf8_lossy(packet.payload)),
         packet
         @
-        (Packet::Publish(_)
-        | Packet::Puback(_)
+        (Packet::Puback(_)
         | Packet::Pubrel(_)
         | Packet::Pubrec(_)
         | Packet::Pubcomp(_)
