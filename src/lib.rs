@@ -6,13 +6,15 @@ pub fn format_packet(packet: Packet) -> String {
         Packet::Connack(packet) => format!("{:#?}", packet),
         Packet::Subscribe(packet) => format!("{:#?}", packet),
         Packet::Unsubscribe(packet) => format!("{:#?}", packet),
-        Packet::Unsuback(packet) => format!("{:#?}", packet),
         Packet::Suback(packet) => format!("{:#?}", packet),
-        Packet::Publish(packet) => format!("{:#?}", packet),
-        Packet::Puback(packet) => format!("{:#?}", packet),
-        Packet::Pubrel(packet) => format!("{:#?}", packet),
-        Packet::Pubrec(packet) => format!("{:#?}", packet),
-        Packet::Pubcomp(packet) => format!("{:#?}", packet),
+        packet
+        @
+        (Packet::Publish(_)
+        | Packet::Puback(_)
+        | Packet::Pubrel(_)
+        | Packet::Pubrec(_)
+        | Packet::Pubcomp(_)
+        | Packet::Unsuback(_)) => format!("{:#?}", packet),
         Packet::Disconnect => format!("{:#?}", Packet::Disconnect),
         Packet::Pingreq => format!("{:#?}", Packet::Disconnect),
         Packet::Pingresp => format!("{:#?}", Packet::Disconnect),
